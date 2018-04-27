@@ -18,3 +18,7 @@ def ocrInFile(name):
         return "Erro, argument name != string"
     
     return pytesseract.image_to_string( Image.open(name), lang='por' ) # eng = english and por = portuguese
+
+# Exemplo
+# string = ocrInFile('download.jpg')
+# print(string)
