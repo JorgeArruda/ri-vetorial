@@ -9,7 +9,7 @@ def files_folder(path):
     files = os.listdir(path)
     documents = {}
     for file in files:
-        text = Document(path + file)
+        text = Document(path+file)
         full_text = ''
         for p in text.paragraphs: 
             full_text = full_text+p.text

@@ -11,7 +11,7 @@ def files_folder(path):
     files = os.listdir(path)
     documents = {}
     for file in files:
-        documents[file] = BeautifulSoup( codecs.open( path + file, 'r').read() , 'lxml').get_text()           
+        documents[file] = BeautifulSoup( codecs.open( path+file, 'r').read() , 'lxml').get_text()           
     return documents
 
 def file(name):    
