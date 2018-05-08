@@ -8,10 +8,10 @@ import ocr
 import frequency
 import mysql
 
-archive = open("txt/exe01.txt", "r")
-documents = lex.tokenize(archive.read())
-print(documents)
-archive.close()
+# archive = open("txt/exe01.txt", "r")
+# documents = lex.tokenize(archive.read())
+# print(documents)
+# archive.close()
 
 # archive = open("documents.txt", "w", encoding='utf-8')
 # archive.write(json.dumps({"exe01.txt":documents}, ensure_ascii=False))
