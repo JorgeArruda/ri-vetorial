@@ -22,7 +22,7 @@ def get_text(name, path = '/'):
             return docx_read.file(path+name)
         elif (archive_type == "jpg" | archive_type == "png"):
             return ocr.file(path+name)
-    except FileNotFoundError:
+    except IOError:
        print("No such file or directory: ",path+name)
 
 if __name__ =="__main__":
