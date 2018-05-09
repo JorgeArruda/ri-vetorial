@@ -4,7 +4,6 @@ import os
 from bs4 import BeautifulSoup
 import codecs
 
-
 def files_folder(path):
     if type(path) != str:
         return "Erro, argument path != string"

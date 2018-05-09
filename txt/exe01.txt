@@ -1,8 +1,0 @@
-Este meta-artigo, no âmbito de projetos multidisciplinares, objetiva mostrar como a área
-de Processamento Digital de Imagens, por sua versatilidade e abrangência, pode ser un
-grande aliado à área de Saúde para solucionar desafios socio-médicos. Do ponto de
-visto genérico, a área de Processamento Digital de Imagens tem como meta reproduzir,
-de forma computacional, a capacidade humana de processar e interpretar informações
-picturais. Este meta-artigo tem como objetivo apresentar processos chaves envolvidos no
-Processamento Digital de Imagens Médicas. São descritas as técnicas de filtragem e de
-segmentação necessárias á extração da informação de interesse.

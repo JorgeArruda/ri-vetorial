@@ -3,7 +3,6 @@
 import os
 import pdftotext
 
-
 def files_folder(path):
     if type(path) != str:
         return "Erro, argument path != string"

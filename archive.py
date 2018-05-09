@@ -24,9 +24,6 @@ def get_text(name, path = '/'):
             return ocr.file(path+name)
     except FileNotFoundError:
        print("No such file or directory: ",path+name)
-            
-    
-
 
 if __name__ =="__main__":
     get_text("jkak.pdf")

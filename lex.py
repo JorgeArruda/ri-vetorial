@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import ply.lex as lex
-
 import nltk
 
 tokens = (
