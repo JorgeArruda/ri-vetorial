@@ -9,11 +9,11 @@ import pymysql.cursors
 def connect():
     return mysql.connect(host = "127.0.0.1", user = "ri_vetorial", passwd = '14411441', db = 'ri_vetorial', port= 3306)
 
-def saveTokens(connection, name, tokens):
+def saveTokens(connection, name, text,  tokens):
     try:
         with connection.cursor() as cursor:
-            sql = """INSERT INTO `ri_vetorial`.`documents` (`titulo`, `texto`) VALUES ( %s, %s)"""
-            cursor.execute(sql,(name,tokens))
+            sql = """INSERT INTO `ri_vetorial`.`documents` (`nome`, `texto`, `tokens`) VALUES ( %s, %s, %s)"""
+            cursor.execute(sql,(name, text, tokens))
 
             connection.commit()
     finally:

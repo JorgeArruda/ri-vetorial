@@ -3,11 +3,15 @@
 import json
 
 # Importando arquivos
-import lex
-import ocr
-import pdf_read
-import docx_read
-import html_read
+import my_app.lex as lex
+import my_app.ocr as ocr
+import my_app.pdf_read as pdf_read
+import my_app.docx_read as docx_read
+import my_app.html_read as html_read
+from operator import itemgetter
+
+def sort_dic(dic, indice=0):
+    return sorted(dic.items(), key=itemgetter(indice))
 
 def get_text(name, path = '/'):
     if type(path) != str:
@@ -20,10 +24,53 @@ def get_text(name, path = '/'):
             return pdf_read.file(path+name)
         elif (archive_type == "docx"):
             return docx_read.file(path+name)
-        elif (archive_type == "jpg" | archive_type == "png"):
+        elif ((archive_type == "jpg") | (archive_type == "png")):
             return ocr.file(path+name)
-    except IOError:
+        else:
+            return ' '
+    except FileNotFoundError:
        print("No such file or directory: ",path+name)
+       return ' '
 
+def get_tokens(text, language='portuguese'):
+    if type(text) != str:
+        return "Erro, argument text != string"
+    return lex.tokenize(text, language)
+
+def get_frequency(listTokens, frequencyWord):
+        "Vare a lista de tokens do documento, retorna a frequência. Incrementa também a frequência global. return (frequencyDocument, frequencyWord)"
+
+        frequencyDocument = {}
+        for token in listTokens:
+            print(token)
+            if token in frequencyWord:
+                frequencyWord[ token ]+=1
+            else:
+                frequencyWord[ token ]=1
+
+            if token in frequencyDocument:
+                frequencyDocument[ token ]+=1
+            else:
+                frequencyDocument[ token ]=1
+        
+        return (dict(sort_dic(frequencyDocument)), dict(sort_dic(frequencyWord)))
+
+def get_frequency2(listTokens, frequencyWord):
+        "Vare a lista de tokens do documento, retorna a frequência. Incrementa também a frequência global. return (frequencyDocument, frequencyWord)"
+        frequencyDocument = {}
+        # if type(frequencyWord)=='list':
+        for token in listTokens:
+            if token in frequencyWord:
+                frequencyWord[ token ]+=1
+            else:
+                frequencyWord[ token ]=1
+
+            if token in frequencyDocument:
+                frequencyDocument[ token ]+=1
+            else:
+                frequencyDocument[ token ]=1
+        
+        return (dict(sort_dic(frequencyDocument)), frequencyWord)
+            
 if __name__ =="__main__":
     get_text("jkak.pdf")
